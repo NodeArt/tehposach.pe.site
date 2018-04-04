@@ -9,6 +9,7 @@ html {
 * {
   &:before,
   &:after { box-sizing: inherit; }
+  outline: none !important;
 }
 
 body {
@@ -33,7 +34,6 @@ img {
 }
 
 
-@import url('https://fonts.googleapis.com/css?family=Oswald');
 
 
 h1,

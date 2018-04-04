@@ -5,8 +5,8 @@ header {
 .header {
   &-logo {
     display: block;
-    font-size: 54px;
-    line-height: 54px;
+    font-size: 58px;
+    line-height: 58px;
     color: $black-color;
     text-transform: uppercase;
     font-family: Oswald, sans-serif;
@@ -25,5 +25,13 @@ header {
     font-weight: 300;
     letter-spacing: 2px;
     margin: 5px 0 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    &-logo, &-description {
+      text-align: left;
+    }
   }
 }

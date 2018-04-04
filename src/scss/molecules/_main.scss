@@ -1,3 +1,14 @@
+.brandsList {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 14px;
+  line-height: 1.8;
+  color: $black-color;
+}
+
 .main {
   margin-bottom: 70px;
 }
@@ -25,9 +36,29 @@
   font-weight: 400;
   font-family: Oswald, sans-serif;
   color: $black-color;
-  padding-top: 20px;
+  margin-top: 0;
 }
 
 .link {
   color: $cyan-color;
+}
+
+.outsourceFeatures {
+  font-size: 14px;
+  line-height: 20px;
+  color: $black-color;
+  font-weight: 400;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 10px 0 0 25px;
+  padding: 0;
+
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .main {
+    max-width: 66%;
+  }
 }

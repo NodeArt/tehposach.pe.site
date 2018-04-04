@@ -10,9 +10,27 @@
 .container {
   display: block;
   min-width: 320px;
-  max-width: 980px;
+  max-width: 1010px;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.flexible {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.pt0 {
+  padding-top: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .flexible {
+    flex-flow: row;
+    justify-content: space-between;
+  }
 }

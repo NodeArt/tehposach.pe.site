@@ -25,7 +25,7 @@
 
     <!-- #Typekit -->
 
-    <title>Tehpostach PE</title>
+    <title>Join Us | Tehpostach PE</title>
     <meta name="description" content="">
     <meta name="robots" content="all">
 
@@ -61,18 +61,18 @@
     <label for="mobMenuCheckbox">menu</label>
 
     <nav class="mobile-menu">
-        <a class="nav-link activeNavLink" href="/">profile</a>
+        <a class="nav-link" href="/">profile</a>
         <a class="nav-link" href="outsourcing.html">manufacturing outsourcing</a>
         <a class="nav-link" href="brands.html">brands & customers</a>
-        <a class="nav-link" href="join_us.html">join us</a>
+        <a class="nav-link activeNavLink" href="join_us.html">join us</a>
         <a class="nav-link" href="contact_us.html">contact us</a>
     </nav>
 
     <nav class="menu">
-        <a class="nav-link desktopNav activeNavLink" href="/">profile</a>
+        <a class="nav-link desktopNav" href="/">profile</a>
         <a class="nav-link desktopNav" href="outsourcing.html">manufacturing outsourcing</a>
         <a class="nav-link desktopNav" href="brands.html">brands & customers</a>
-        <a class="nav-link desktopNav" href="join_us.html">join us</a>
+        <a class="nav-link desktopNav activeNavLink" href="join_us.html">join us</a>
         <a class="nav-link desktopNav" href="contact_us.html">contact us</a>
     </nav>
 </div>
@@ -80,23 +80,37 @@
 
 <div class="container flexible">
     <main class="main">
-        <h1 class="mainTitle">profile</h1>
-        <img src="/img/main-pic.jpg" alt="picture">
-        <blockquote class="mainBlockquote">We love clothing. We love the simplicity, quality and beauty. We adore what
-            we do, we’re working
-            hard every day to get the highest results. This is our way and this is what we’re working on
-        </blockquote>
-        <p class="mainText">Tehpostach PE is a Ukrainian company, specialising in manufacturing ladies, mens and work
-            clothing as well as
-            other allied textile items. Being located in the city of Lviv, Ukraine, Tehpostach PE employs over 100
-            people and works on various kinds of products for the well-known customers on the basis of customers’ raw
-            materials.</p>
-        <p class="mainText">Three production units are owned by Tehpostach PE which are located not only in Lviv, but
-            also in other
-            regions of western Ukraine. Such location is very convenient to our key customers as it’s close to the the
-            European Union border.</p>
-        <p class="mainText">Please, find more information about possibilities of <a class="link" href="#">manufacturing
-            outsourcing</a> of your products with us.</p>
+        <h1 class="mainTitle">join us</h1>
+        <img src="/img/people_tp.jpg" alt="picture">
+        <p class="mainText">People are at the heart of our company. That’s why recruitment and selection of the
+            appropriate employees are of the paramount importance to us.</p>
+        <p class="mainText">Structured selection hiring process ensures that the people we hire are chosen on the basis
+            of merit and that employment process is free from bias and discrimination.</p>
+        <p class="mainText">Find our latest work opportunities at <a class="link"
+                                                                     href="//hh.ua/employer/788693">hh.ua</a> and <a
+                class="link" href="//www.work.ua:80/ua/jobs/by-company/129900/">work.ua</a> (in Ukrainian)</p>
+        <p class="mainText">You can also send us your CV and motivation letter using the form below:</p>
+        <form id="inputForm">
+            <div class="inputBlock">
+                <label for="nameInput">Your Name (required)</label>
+                <input type="text" title="Enter your name" name="name" id="nameInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="emailInput">Your Email (required)</label>
+                <input type="email" title="Enter your email" name="email" id="emailInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="subjectInput">Subject</label>
+                <input type="text" title="Enter your subject" name="subject" id="subjectInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="inputTextArea">Your Motivation</label>
+                <textarea id="inputTextArea"></textarea>
+            </div>
+            <p class="mainText">Attach Your CV</p>
+            <input type="file">
+            <button class="sendButton" type="submit">send</button>
+        </form>
     </main>
 
     <aside class="aboutUs">

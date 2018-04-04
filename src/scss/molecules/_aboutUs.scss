@@ -1,0 +1,45 @@
+.moto {
+  margin: 0 0 15px;
+  padding: 0 0 15px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid $black-color;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+}
+
+.products {
+  ul {
+    list-style: none;
+    margin: 0 0 15px;
+    padding: 0 0 10px;
+    border-bottom: 1px solid black;
+  }
+
+  li a {
+    font-weight: 400;
+    font-size: 14px;
+    font-family: Georgia, serif;
+    line-height: 1.8;
+    color: $black-color;
+  }
+}
+
+.socialNetworks {
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+  margin-bottom: 55px;
+
+  &-item:before {
+    display: block;
+    content: '';
+    width: 40px;
+    height: 40px;
+    background: $black-color;
+    margin-right: 10px;
+  }
+}
+

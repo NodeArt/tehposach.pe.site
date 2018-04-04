@@ -1,0 +1,41 @@
+#mobMenuCheckbox {
+  display: none;
+  &:checked ~ .mobile-menu {
+    visibility: visible;
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+label[for="mobMenuCheckbox"] {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  color: $cyan-color;
+  border-bottom: 3px solid black;
+}
+
+.mobile-menu {
+  position: relative;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-flow: column;
+  background-color: $black-color;
+  transition: all .3s ease-in;
+  height: 0;
+}
+
+.nav-link {
+  display: block;
+  text-align: left;
+  padding: 13px 20px;
+  color: $white-color;
+  text-transform: uppercase;
+  font-family: Oswald, sans-serif;
+  font-size: 16px;
+  letter-spacing: .5px;
+  font-weight: 400;
+}

@@ -7,3 +7,11 @@
 // that can’t be broken down any further without ceasing to be functional.
 //
 // @source - http://atomicdesign.bradfrost.com/chapter-2/
+.blue-link {
+  color: white;
+  transition: color .3s ease;
+  &:hover {
+    color: $cyan-color;
+
+  }
+}

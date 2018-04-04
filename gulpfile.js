@@ -248,7 +248,7 @@ gulp.task('minify-html', function () {
 gulp.task('watch', function () {
     gulp.watch(bases.app + 'scss/**/*.scss', ['styles']);
     gulp.watch(bases.app + './*.html', ['minify-html']);
-    gulp.watch(bases.app + 'images/*', ['imagemin']);
+    gulp.watch(bases.app + 'img/*', ['imagemin']);
     gulp.watch(bases.app + 'js/*.js', ['js-app']);
 });
 

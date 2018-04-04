@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js gt-ie9 ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js gt-ie9"> <!--<![endif]-->
-  <head>
+<!--[if IE 8]>
+<html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if IE 9]>
+<html class="no-js gt-ie9 ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js gt-ie9"> <!--<![endif]-->
+<head>
     <!--
 
       Description:
@@ -20,18 +23,9 @@
     <link rel="dns-prefetch" href="//use.typekit.net">
     <link rel="dns-prefetch" href="//google-analytics.com">
 
-    <!-- #Asset Prefetching -->
-    <!-- Fetch and Download Assets before requested by the user  -->
-    <!-- http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:resource-prefetching -->
-    <link rel="prefetch" href="">
-
-    <!-- #Page Prefetching -->
-    <!-- http://calendar.perfplanet.com/2012/speed-up-your-site-using-prefetching -->
-    <link rel="prefetch" href="index.html">
-
     <!-- #Typekit -->
 
-    <title>Sassy Starter</title>
+    <title>Tehpostach PE</title>
     <meta name="description" content="">
     <meta name="robots" content="all">
 
@@ -46,17 +40,91 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <!-- CSS, you gotta have style -->
+
     <link rel="stylesheet" href="css/styles.css">
 
     <!-- Modernizer, cause some browsers suck -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-    </head>
-  <body>
+</head>
+<body>
+<div class="container">
+    <header>
+        <a class="header-logo" href="/">tehpostach pe</a>
+        <p class="header-description">Professional clothing manufacturer in Ukraine</p>
+    </header>
+</div>
+<!--Mobile menu-->
+<div class="container">
+    <input type="checkbox" id="mobMenuCheckbox">
+    <label for="mobMenuCheckbox">menu</label>
+
+    <nav class="mobile-menu">
+        <a class="nav-link" href="/">profile</a>
+        <a class="nav-link" href="outsurcing.html">manufacturing outsourcing</a>
+        <a class="nav-link" href="brands.html">brands & customers</a>
+        <a class="nav-link" href="join_us.html">join us</a>
+        <a class="nav-link" href="contact_us.html">contact us</a>
+    </nav>
+</div>
+
+<div class="container">
+    <main class="main">
+        <h1 class="mainTitle">profile</h1>
+        <img src="/img/main-pic.jpg" alt="picture">
+        <blockquote class="mainBlockquote">We love clothing. We love the simplicity, quality and beauty. We adore what
+            we do, we’re working
+            hard every day to get the highest results. This is our way and this is what we’re working on
+        </blockquote>
+        <p class="mainText">Tehpostach PE is a Ukrainian company, specialising in manufacturing ladies, mens and work
+            clothing as well as
+            other allied textile items. Being located in the city of Lviv, Ukraine, Tehpostach PE employs over 100
+            people and works on various kinds of products for the well-known customers on the basis of customers’ raw
+            materials.</p>
+        <p class="mainText">Three production units are owned by Tehpostach PE which are located not only in Lviv, but
+            also in other
+            regions of western Ukraine. Such location is very convenient to our key customers as it’s close to the the
+            European Union border.</p>
+        <p class="mainText">Please, find more information about possibilities of <a class="link" href="#">manufacturing
+            outsourcing</a> of your products with us.</p>
+    </main>
+
+    <aside class="aboutUs">
+        <h2 class="moto">we love clothing. we love the simplicity, quality and beauty.</h2>
+        <div class="products">
+            <h2 class="moto">products we manufacture</h2>
+            <ul>
+                <li><a href="#">Workwear</a></li>
+                <li><a href="#">Jackets</a></li>
+                <li><a href="#">Lifejackets</a></li>
+                <li><a href="#">Uniforms</a></li>
+                <li><a href="#">Military uniform</a></li>
+                <li><a href="#">Hoodies & sweatshirts</a></li>
+                <li><a href="#">Pants & trousers</a></li>
+                <li><a href="#">Shorts</a></li>
+            </ul>
+        </div>
+        <h2 class="moto">stay connected with us</h2>
+        <div class="socialNetworks">
+            <a class="socialNetworks-item" href="#" title="Facebook">
+
+            </a>
+            <a class="socialNetworks-item" href="#" title="LinkedIn"></a>
+            <a class="socialNetworks-item" href="#" title="Google+"></a>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div class="container">
+        <span class="copyright"> &#169; 2017 tehpostach pe. all rights reserved.</span>
+        <span class="copyright"> <a class="blue-link" href="//athemes.com/themes/fashionista">Fashionista</a> by athemes</span>
+    </div>
+</footer>
 
 
+<script src="js/main.js"></script>
 
-    <script src="js/main.js"></script>
-  </body>
+</body>
 </html>

@@ -1,0 +1,29 @@
+header {
+  border-bottom: 1px solid black;
+}
+
+.header {
+  &-logo {
+    display: block;
+    font-size: 54px;
+    line-height: 54px;
+    color: $black-color;
+    text-transform: uppercase;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+    font-weight: 400;
+  }
+  &-description {
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    color: $gray-color;
+    text-transform: uppercase;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 5px 0 20px;
+  }
+}

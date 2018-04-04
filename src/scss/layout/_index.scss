@@ -7,3 +7,12 @@
 // styled using ID selectors but take the time to think about the elements
 // that are common across all components of the page and use class selectors
 // where appropriate.
+.container {
+  display: block;
+  min-width: 320px;
+  max-width: 980px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}

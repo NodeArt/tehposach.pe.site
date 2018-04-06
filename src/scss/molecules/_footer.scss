@@ -1,0 +1,18 @@
+.copyright {
+  display: block;
+  font-size: 12px;
+  font-family: Oswald, Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  text-align: center;
+  color: $gray-color;
+}
+
+footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: $black-color;
+  padding: 20px 0;
+}

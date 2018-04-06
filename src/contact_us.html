@@ -25,7 +25,7 @@
 
     <!-- #Typekit -->
 
-    <title>Tehpostach PE</title>
+    <title>Contact Us | Tehpostach PE</title>
     <meta name="description" content="">
     <meta name="robots" content="all">
 
@@ -61,42 +61,57 @@
     <label for="mobMenuCheckbox">menu</label>
 
     <nav class="mobile-menu">
-        <a class="nav-link activeNavLink" href="/">profile</a>
+        <a class="nav-link" href="/">profile</a>
         <a class="nav-link" href="outsourcing.html">manufacturing outsourcing</a>
         <a class="nav-link" href="brands.html">brands & customers</a>
         <a class="nav-link" href="join_us.html">join us</a>
-        <a class="nav-link" href="contact_us.html">contact us</a>
+        <a class="nav-link activeNavLink" href="contact_us.html">contact us</a>
     </nav>
 
     <nav class="menu">
-        <a class="nav-link desktopNav activeNavLink" href="/">profile</a>
+        <a class="nav-link desktopNav" href="/">profile</a>
         <a class="nav-link desktopNav" href="outsourcing.html">manufacturing outsourcing</a>
         <a class="nav-link desktopNav" href="brands.html">brands & customers</a>
         <a class="nav-link desktopNav" href="join_us.html">join us</a>
-        <a class="nav-link desktopNav" href="contact_us.html">contact us</a>
+        <a class="nav-link desktopNav activeNavLink" href="contact_us.html">contact us</a>
     </nav>
 </div>
 <!--Mobile menu end-->
 
 <div class="container flexible">
     <main class="main">
-        <h1 class="mainTitle">profile</h1>
-        <img src="/img/main-pic.jpg" alt="picture">
-        <blockquote class="mainBlockquote">We love clothing. We love the simplicity, quality and beauty. We adore what
-            we do, we’re working
-            hard every day to get the highest results. This is our way and this is what we’re working on
-        </blockquote>
-        <p class="mainText">Tehpostach PE is a Ukrainian company, specialising in manufacturing ladies, mens and work
-            clothing as well as
-            other allied textile items. Being located in the city of Lviv, Ukraine, Tehpostach PE employs over 100
-            people and works on various kinds of products for the well-known customers on the basis of customers’ raw
-            materials.</p>
-        <p class="mainText">Three production units are owned by Tehpostach PE which are located not only in Lviv, but
-            also in other
-            regions of western Ukraine. Such location is very convenient to our key customers as it’s close to the the
-            European Union border.</p>
-        <p class="mainText">Please, find more information about possibilities of <a class="link" href="#">manufacturing
-            outsourcing</a> of your products with us.</p>
+        <h1 class="mainTitle">contact us</h1>
+        <p class="mainText">Whether you’re looking for more information about us, you’ll find the most convinient ways
+            to contact us right here.</p>
+        <span class="mainText bold">Headquarters and postal address</span>
+        <ul class="brandsList">
+            <li>Tehpostach PE</li>
+            <li>Himichna vul. 20</li>
+            <li>L’viv 79058</li>
+            <li>Ukraine</li>
+        </ul>
+        <p class="mainText bold">Call us:</p>
+        <a class="mainText" href="tel:380322474077">+38 032 247 4077</a>
+        <p class="mainText bold">Contact us by e-mail:</p>
+        <form id="inputForm">
+            <div class="inputBlock">
+                <label for="nameInput">Your Name (required)</label>
+                <input type="text" title="Enter your name" name="name" id="nameInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="emailInput">Your Email (required)</label>
+                <input type="email" title="Enter your email" name="email" id="emailInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="subjectInput">Subject</label>
+                <input type="text" title="Enter your subject" name="subject" id="subjectInput" required>
+            </div>
+            <div class="inputBlock">
+                <label for="inputTextAreaContact">Your Message</label>
+                <textarea id="inputTextAreaContact" name="textarea"></textarea>
+            </div>
+            <button class="sendButton" type="submit">send</button>
+        </form>
     </main>
 
     <aside class="aboutUs">

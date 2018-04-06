@@ -9,8 +9,8 @@
   "license": "MIT",
   "homepage": "",
   "scripts": {
-    "gulp": "gulp",
-    "deploy": "gulp build"
+    "start": "gulp",
+    "deploy": "gulp build && firebase deploy"
   },
   "dependencies": {},
   "devDependencies": {

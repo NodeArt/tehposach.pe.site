@@ -1,0 +1,37 @@
+header {
+  border-bottom: 1px solid black;
+}
+
+.header {
+  &-logo {
+    display: block;
+    font-size: 58px;
+    line-height: 58px;
+    color: $black-color;
+    text-transform: uppercase;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+    font-weight: 400;
+  }
+  &-description {
+    display: block;
+    font-size: 14px;
+    line-height: 22px;
+    color: $gray-color;
+    text-transform: uppercase;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 5px 0 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .header {
+    &-logo, &-description {
+      text-align: left;
+    }
+  }
+}

@@ -9,6 +9,7 @@ html {
 * {
   &:before,
   &:after { box-sizing: inherit; }
+  outline: none !important;
 }
 
 body {
@@ -31,6 +32,9 @@ img {
   height: auto;
   max-width: 100%;
 }
+
+
+
 
 h1,
 h2,

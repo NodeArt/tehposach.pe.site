@@ -64,7 +64,7 @@
         <a class="nav-link" href="/">profile</a>
         <a class="nav-link" href="outsourcing.html">manufacturing outsourcing</a>
         <a class="nav-link" href="brands.html">brands & customers</a>
-        <a class="nav-link activeNavLink" href="join_us.html">join us</a>
+        <a class="nav-link activeNavLink" href="./join_us.html">join us</a>
         <a class="nav-link" href="contact_us.html">contact us</a>
     </nav>
 
@@ -88,14 +88,14 @@
             of merit and that employment process is free from bias and discrimination.</p>
         <p class="mainText">Find our latest work opportunities at <a class="link"
                                                                      href="//hh.ua/employer/788693">hh.ua</a> and <a
-                class="link" href="//www.work.ua:80/ua/jobs/by-company/129900/">work.ua</a> (in Ukrainian)</p>
+                class="link" href="//www.work.ua/jobs/by-company/129900/">work.ua</a> (in Ukrainian)</p>
         <p class="mainText">You can also send us your CV and motivation letter using the form below:</p>
         <form id="inputForm">
-            <div class="inputBlock">
+            <div class="inputBlock half-width">
                 <label for="nameInput">Your Name (required)</label>
                 <input type="text" title="Enter your name" name="name" id="nameInput" required>
             </div>
-            <div class="inputBlock">
+            <div class="inputBlock half-width">
                 <label for="emailInput">Your Email (required)</label>
                 <input type="email" title="Enter your email" name="email" id="emailInput" required>
             </div>
@@ -105,10 +105,11 @@
             </div>
             <div class="inputBlock">
                 <label for="inputTextArea">Your Motivation</label>
-                <textarea id="inputTextArea"></textarea>
+                <textarea id="inputTextArea" name="textarea"></textarea>
             </div>
-            <p class="mainText">Attach Your CV</p>
-            <input type="file">
+            <p class="mainText all-width">Attach Your CV</p>
+            <input type="file" id="file">
+            <label for="file">Upload Your CV</label>
             <button class="sendButton" type="submit">send</button>
         </form>
     </main>
@@ -144,11 +145,16 @@
 </div>
 
 <footer>
-    <div class="container flexible pt0">
+    <div class="container">
         <span class="copyright"> &#169; 2018 tehpostach pe. all rights reserved.</span>
     </div>
 </footer>
 
+<div class="popup-container" id="popup-container">
+    <div class="popup">
+        <p>Thank you! We will contact you!</p>
+    </div>
+</div>
 <script src="js/main.js"></script>
 
 </body>

@@ -94,11 +94,11 @@
         <a class="mainText" href="tel:380322474077">+38 032 247 4077</a>
         <p class="mainText bold">Contact us by e-mail:</p>
         <form id="inputForm">
-            <div class="inputBlock">
+            <div class="inputBlock half-width">
                 <label for="nameInput">Your Name (required)</label>
                 <input type="text" title="Enter your name" name="name" id="nameInput" required>
             </div>
-            <div class="inputBlock">
+            <div class="inputBlock half-width">
                 <label for="emailInput">Your Email (required)</label>
                 <input type="email" title="Enter your email" name="email" id="emailInput" required>
             </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="inputBlock">
                 <label for="inputTextAreaContact">Your Message</label>
-                <textarea id="inputTextAreaContact" name="textarea"></textarea>
+                <textarea id="inputTextAreaContact" name="textareaContact"></textarea>
             </div>
             <button class="sendButton" type="submit">send</button>
         </form>
@@ -145,11 +145,15 @@
 </div>
 
 <footer>
-    <div class="container flexible pt0">
+    <div class="container">
         <span class="copyright"> &#169; 2018 tehpostach pe. all rights reserved.</span>
     </div>
 </footer>
-
+<div class="popup-container" id="popup-container">
+    <div class="popup">
+        <p>Thank you! We will contact you!</p>
+    </div>
+</div>
 <script src="js/main.js"></script>
 
 </body>

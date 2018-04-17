@@ -1,10 +1,11 @@
 'use strict';
 const functions = require('firebase-functions');
-const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
+const formidable = require('formidable');
 
-const gmailEmail = functions.config().gmail.email || "test@gmail.com";
-const gmailPassword = functions.config().gmail.password || "password";
+
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
 
 const mailTransport = nodemailer.createTransport({
     service: 'gmail',
@@ -14,20 +15,56 @@ const mailTransport = nodemailer.createTransport({
     },
 });
 
-// admin.initializeApp(functions.config().firebase);
 
+exports.sendMail = functions.https.onRequest( (req, res) => {
 
-exports.sendMail = functions.https.onRequest(function (req, res) {
-    console.log('this is our req', req);
+    console.log('TEST', req.body, res);
+    // const form = new formidable.IncomingForm();
+    // console.log(form);
+    //
+    // form.parse(req, function (err, fields, files) {
+    //     console.log('start 2', err, fields, files);
+    //     if (err) {
+    //         console.log('start 3');
+    //         res.status(500).json({
+    //             error: err
+    //         });
+    //     }
+    //     return {fields, files};
+    // });
+    const parsed = JSON.parse(req.body);
     const mailOptions = {
         from: `Tehpostach <${gmailEmail}>`,
-        to: `Nosov <nosovk@gmail.com>, Roman <romanpadlyak@gmail.com>`,
+        // to: `Nosov <nosovk@gmail.com>, Roman <romanpadlyak@gmail.com>`,
+        to: `d.nesterenko27@gmail.com`,
         subject: 'Tehpostach request',
-        html: req.body || 'LOL'
+        // attachments: [{
+        //                 filename: req.body.attachment.name,
+        //                 // content: files._writeStream,
+        //     content: req.body.attachment,
+        //             }],
+        html: `email: ${parsed.email } 
+                   subject: ${parsed.subject } 
+                   name: ${parsed.name} 
+                   message: ${parsed.message || parsed.motivation || "nothing"}
+                   referrer: ${parsed.referrer}`,
+
     };
 
+    // if (files.attachment) {
+    //     Object.assign(mailOptions, {
+    //         attachments: [{
+    //             filename: files.attachment.name,
+    //             content: files._writeStream,
+    //         }]
+    //     })
+    // }
+    console.log('start 5', mailOptions);
+
     mailTransport.sendMail(mailOptions, function (error, info) {
+        console.log('start 6');
         if (error) {
+            console.log(error);
             res.status(500).json({
                 error: error
             });

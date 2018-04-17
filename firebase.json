@@ -1,5 +1,16 @@
 {
   "hosting": {
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</js/app.js>;rel=preload;as=script,</css/styles.css>;rel=preload;as=style"
+          }
+        ]
+      }
+    ],
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -11,6 +22,8 @@
         "source": "/sendMail",
         "function": "sendMail"
       }
-    ]
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
   }
 }

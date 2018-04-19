@@ -9,11 +9,10 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "multiparty": "4.0.0",
     "firebase-admin": "~5.11.0",
     "firebase-functions": "^1.0.0",
-    "formidable": "^1.2.1",
-    "nodemailer": "^4.6.4",
-    "util": "^0.10.3"
+    "nodemailer": "^4.6.4"
   },
   "private": true
 }

@@ -57,14 +57,17 @@
                 data.attachment = uploadedFile;
             }
 
-            // const formData = new FormData();
-            //
-            // for (let name in data) {
-            //     formData.append(name, data[name]);
-            // }
+            const formData = new FormData();
+
+            for (let name in data) {
+                formData.append(name, data[name]);
+            }
+
+            // myHeaders.append("Content-Length", formData.byteLength());
+
             fetch('/sendMail', {
                 method: "POST",
-                body: JSON.stringify(data)
+                body: formData
             })
                 .then(res => res.text())
                 .then(data => console.log(data))

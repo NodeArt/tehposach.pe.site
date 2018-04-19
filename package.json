@@ -12,7 +12,8 @@
     "start": "gulp",
     "deploy": "gulp build && firebase deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",

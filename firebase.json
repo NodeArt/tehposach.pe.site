@@ -6,7 +6,7 @@
         "headers": [
           {
             "key": "Link",
-            "value": "</js/app.js>;rel=preload;as=script,</css/styles.css>;rel=preload;as=style"
+            "value": "</js/main.js>;rel=preload;as=script,</css/styles.css>;rel=preload;as=style"
           }
         ]
       }

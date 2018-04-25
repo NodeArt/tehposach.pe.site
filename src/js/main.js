@@ -31,7 +31,6 @@
         file.addEventListener('change', () => {
             span.innerHTML = "";
             uploadedFile = (file.files[0].size <= maxFileSize ? file.files[0] : fileSizeNotification());
-            console.log(uploadedFile);
         });
     }
 
@@ -63,7 +62,6 @@
                 formData.append(name, data[name]);
             }
 
-            // myHeaders.append("Content-Length", formData.byteLength());
 
             fetch('/sendMail', {
                 method: "POST",
@@ -72,7 +70,7 @@
                 .then(res => res.text())
                 .then(data => console.log(data))
                 .then(popUpOpener)
-                .then(form.reset())
+                .then(() => form.reset())
                 .catch(e => console.log(e));
         });
     }

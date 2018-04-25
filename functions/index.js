@@ -1,8 +1,8 @@
 'use strict';
 const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
-const gmailEmail = functions.config().email || "atlassian@nodeart.io";
-const gmailPassword = functions.config().password || "272645Ew";
+const gmailEmail = functions.config().gmail.email || "email";
+const gmailPassword = functions.config().gmail.password || "password";
 const Busboy = require('busboy');
 const mailTransport = nodemailer.createTransport({
     service: 'gmail',
@@ -28,20 +28,15 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     const results = [];
     busboy.on('file', function (fieldname, stream, filename, encoding, mimeType) {
 
-        // let data = '';
         let docSize = 0;
         let bufs = [];
         stream
             .on('data', function (d) {
                 bufs[bufs.length] = d;
                 docSize += d.length;
-                console.log(encoding);
-                // console.log(`N1 ${d}`);
-                // data += d.toString();
             })
             .on('end', function () {
                 bufs = Buffer.concat(bufs, docSize);
-                console.log(`Buffer, ${typeof bufs}, ${bufs}`);
                 let info = [
                     'file',
                     fieldname,
@@ -52,8 +47,6 @@ exports.sendMail = functions.https.onRequest((req, res) => {
                     mimeType
                 ];
 
-                console.log(`Downloaded file ${mimeType}`);
-                console.log(info);
                 results.push(info);
             })
             .on('error', err => {
@@ -67,8 +60,6 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     });
 
     busboy.on('finish', function () {
-
-        console.log('Here is onFinish');
 
         const files = results
             .filter(arr => arr[0] === 'file')
@@ -85,9 +76,6 @@ exports.sendMail = functions.https.onRequest((req, res) => {
             fieldsReady += `<p>${fields[i]}</p>`
         }
 
-        console.log(files);
-        console.log(fields);
-
         const mailOptions = {
             from: `Tehpostach <${gmailEmail}>`,
             // to: `Nosov <nosovk@gmail.com>, Roman <romanpadlyak@gmail.com>`,
@@ -98,17 +86,15 @@ exports.sendMail = functions.https.onRequest((req, res) => {
         };
 
         mailTransport.sendMail(mailOptions, function (error, info) {
-            console.log("mailed it");
             if (error) {
-                console.log(error);
-                res.send(JSON.stringify({error: error.message}))
+                res.send(JSON.stringify({error: error.message}));
+                return res.status(500);
             } else {
                 console.log('Message sent to:', info.envelope.to);
-                res.send({data: "ok"})
+                res.send({data: "ok"});
             }
         });
 
-        console.log('finish after MAIL IS SENT', results);
         res.status(200).end();
     });
 
@@ -118,7 +104,6 @@ exports.sendMail = functions.https.onRequest((req, res) => {
     });
 
     busboy.write(body, function () {
-        console.log("These are args", arguments)
     });
 
     busboy.end();

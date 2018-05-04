@@ -1,0 +1,11 @@
+project:
+  key: NAW
+  plan:
+    key: THP
+    name: tehpostach.com website
+stages:
+  - jobs:
+    - scripts:
+        - docker build --force-rm=true --tag=registry.nodeart.io/naw/thp:latest .
+#      requirements:
+#        - Docker

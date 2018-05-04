@@ -7,6 +7,19 @@
 // that can’t be broken down any further without ceasing to be functional.
 //
 // @source - http://atomicdesign.bradfrost.com/chapter-2/
+.all-width {
+  width: 100%;
+}
+
+.alert {
+  display: block;
+  width: 100%;
+  font-family: Oswald, sans-serif;
+  font-size: 14px;
+  height: 16px;
+  color: red;
+}
+
 .blue-link {
   color: white;
   transition: color .3s ease;
@@ -25,10 +38,20 @@
   flex-flow: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 100%;
 
   input {
     padding: 6px 5px;
     margin-bottom: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid $black-color;
+    transition: all .3s ease;
+
+    &:focus, &:hover {
+      border-color: transparent;
+      box-shadow: 0 0 1px 1px;
+    }
   }
 
   label {
@@ -41,21 +64,55 @@
 }
 
 input[type="file"] {
-  width: 200px;
+  display: none;
 }
 
-#inputTextArea {
-  resize: none;
-  width: 225px;
-  height: 150px;
+label[for="file"] {
+  display: block;
+  width: 140px;
+  height: 40px;
+  background-color: $black-color;
+  font-family: Oswald, sans-serif;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  margin: 20px 0;
+  text-transform: uppercase;
+  transition: all .3s ease;
+
+  &:hover {
+    color: #333333;
+    background-color: white;
+    box-shadow: 0 0 2px 2px $black-color;
+  }
 }
-#inputTextAreaContact {
+
+#inputForm {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+input {
+  &[name="name"], &[name="email"] {
+    width: 100%;
+  }
+}
+
+#inputTextArea, #inputTextAreaContact {
   resize: none;
-  max-width: 500px;
-  min-width: 250px;
   width: 100%;
-  height: 250px;
+  height: 150px;
+  transition: all .3s ease;
+  box-sizing: border-box;
+  &:focus, &:hover {
+    border-color: transparent;
+    box-shadow: 0 0 1px 1px;
+    border-radius: 2px;
+  }
 }
+
 
 .sendButton {
   display: block;
@@ -73,9 +130,16 @@ input[type="file"] {
   &:hover {
     color: $black-color;
     background-color: white;
+    box-shadow: 0 0 2px 2px $black-color;
   }
 
   &:active {
     color: $cyan-color;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .half-width {
+    width: 45%;
   }
 }

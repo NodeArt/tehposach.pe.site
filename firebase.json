@@ -1,0 +1,29 @@
+{
+  "hosting": {
+    "headers": [
+      {
+        "source": "/",
+        "headers": [
+          {
+            "key": "Link",
+            "value": "</js/main.js>;rel=preload;as=script,</css/styles.css>;rel=preload;as=style"
+          }
+        ]
+      }
+    ],
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/sendMail",
+        "function": "sendMail"
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}

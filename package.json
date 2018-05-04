@@ -1,18 +1,19 @@
 {
-  "name": "change",
-  "title": "change",
-  "description": "change this",
+  "name": "tehpostach",
+  "title": "tehpostach PE",
+  "description": "tehpostach site",
   "author": {
-    "name": "change this"
+    "name": "D.Nesterenko"
   },
   "version": "0.0.1",
   "license": "MIT",
   "homepage": "",
   "scripts": {
-    "gulp": "gulp",
-    "deploy": "gulp build"
+    "start": "gulp",
+    "deploy": "gulp build && firebase deploy"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.2",

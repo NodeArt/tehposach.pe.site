@@ -110,3 +110,7 @@ typings/
 .env
 
 
+dist
+
+public
+

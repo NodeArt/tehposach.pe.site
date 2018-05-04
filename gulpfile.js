@@ -145,7 +145,7 @@ gulp.task('js-app', function () {
     gulp.src(bases.app + '/js/*.js')
         .pipe(webpack({
             devtool: 'source-map',
-            entry: './src/js/app.js',
+            entry: './src/js/main.js',
             output: {
                 filename: '[name].js',
                 sourceMapFilename: '[name].map'

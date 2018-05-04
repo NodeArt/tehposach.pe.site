@@ -68,7 +68,6 @@
                 body: formData
             })
                 .then(res => res.text())
-                .then(data => console.log(data))
                 .then(popUpOpener)
                 .then(() => form.reset())
                 .catch(e => console.log(e));

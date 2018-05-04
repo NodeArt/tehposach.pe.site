@@ -14,18 +14,12 @@ const mailTransport = nodemailer.createTransport({
 
 exports.sendMail = functions.https.onRequest((req, res) => {
 
-    let cType = req.headers["content-type"];
-    let cLength = req.headers["content-length"];
     const body = req.body;
 
-    const busboy = new Busboy({
-        headers: {
-            'content-type': cType,
-            'content-length': cLength
-        }
-    });
+    const busboy = new Busboy({ headers: req.headers });
 
     const results = [];
+
     busboy.on('file', function (fieldname, stream, filename, encoding, mimeType) {
 
         let docSize = 0;
@@ -73,14 +67,13 @@ exports.sendMail = functions.https.onRequest((req, res) => {
         }
         let fieldsReady = '';
         for (let i = 0; i < fields.length; i++) {
-            fieldsReady += `<p>${fields[i]}</p>`
+            fieldsReady += `<p>${fields[i].slice(',').join(': ')}</p>`
         }
 
         const mailOptions = {
             from: `Tehpostach <${gmailEmail}>`,
-            // to: `Nosov <nosovk@gmail.com>, Roman <romanpadlyak@gmail.com>`,
-            to: `d.nesterenko27@gmail.com`,
-            subject: 'Tehpostach request',
+            to: `office@tehpostach.com`,
+            subject: 'Tehpostach form',
             attachments: files,
             html: fieldsReady
         };
@@ -92,10 +85,9 @@ exports.sendMail = functions.https.onRequest((req, res) => {
             } else {
                 console.log('Message sent to:', info.envelope.to);
                 res.send({data: "ok"});
+                res.status(200).end();
             }
         });
-
-        res.status(200).end();
     });
 
     busboy.on('error', function (err) {

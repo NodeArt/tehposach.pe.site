@@ -4,5 +4,7 @@ COPY functions/package.json ./functions/
 RUN npm i && npm i --prefix functions
 COPY . .
 ARG firebasekey
+RUN echo $firebasekey
+RUN FIREBASE_TOKEN=$firebasekey
+RUN echo $firebasekey
 RUN FIREBASE_TOKEN=$firebasekey npm run deploy
-RUN npm run deploy

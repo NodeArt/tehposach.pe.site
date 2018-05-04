@@ -10,7 +10,7 @@
   "homepage": "",
   "scripts": {
     "start": "gulp",
-    "deploy": "gulp build && firebase deploy",
+    "deploy": "gulp build && firebase deploy --token 1/KfFd08QoWG-8UZRX-ctGy09SDYnT2QOGQTFoyulK8Yk",
     "firebase": "firebase"
   },
   "dependencies": {},

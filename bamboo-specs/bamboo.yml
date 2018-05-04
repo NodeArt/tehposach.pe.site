@@ -6,6 +6,6 @@ project:
 stages:
   - jobs:
     - scripts:
-        - docker build --force-rm=true --tag=registry.nodeart.io/naw/thp:latest .
+        - docker build --force-rm=true --build-arg firebasekey=$bamboo_firebasekey --tag=registry.nodeart.io/naw/thp:latest .
 #      requirements:
 #        - Docker

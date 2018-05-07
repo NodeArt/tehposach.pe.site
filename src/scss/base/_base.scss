@@ -19,6 +19,9 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 }
 
 a {

@@ -61,6 +61,12 @@ public class PlanSpec {
         return plan;
     }
 
+    public PlanPermissions planPermission() {
+        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("NAW", "THP"))
+            .permissions(new Permissions()
+        return planPermission;
+    }
+
     public static void main(String... argv) {
         //By default credentials are read from the '.credentials' file.
         BambooServer bambooServer = new BambooServer("https://bamboo.nodeart.io");
@@ -73,4 +79,3 @@ public class PlanSpec {
         bambooServer.publish(planPermission);
     }
 }
-

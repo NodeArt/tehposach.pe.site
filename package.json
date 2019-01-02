@@ -22,7 +22,7 @@
     "colors": "^1.1.2",
     "cross-env": "^5.1.1",
     "del": "^2.0.2",
-    "firebase-tools": "^3.18.4",
+    "firebase-tools": "^4.2.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.9.0",

@@ -1,0 +1,10 @@
+project:
+  key: NAW
+  plan:
+    key: THP
+    name: tehpostach.com website
+stages:
+  - jobs:
+      - scripts:
+          - '[ "$bamboo_repository_git_branch" = "master" ] && docker build --force-rm=true --build-arg firebasekey=$bamboo_firebasekey --tag=registry.nodeart.io/naw/thp:latest .'
+          - '[ "$bamboo_repository_git_branch" = "master" ] && docker rmi registry.nodeart.io/naw/thp:latest'

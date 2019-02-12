@@ -7,11 +7,11 @@
   },
   "version": "0.0.1",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "tehpostach.com",
   "scripts": {
     "start": "gulp",
-    "deploy": "gulp build && firebase deploy --debug",
-    "firebase": "firebase"
+    "build": "gulp build",
+    "deploy": "gulp build && firebase deploy --non-interactive"
   },
   "dependencies": {},
   "devDependencies": {
@@ -22,7 +22,7 @@
     "colors": "^1.1.2",
     "cross-env": "^5.1.1",
     "del": "^2.0.2",
-    "firebase-tools": "^4.2.1",
+    "firebase-tools": "^5.1.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.9.0",

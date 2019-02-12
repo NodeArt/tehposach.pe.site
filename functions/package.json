@@ -15,5 +15,8 @@
     "multiparty": "^4.0.0",
     "nodemailer": "^4.6.4"
   },
+  "engines": {
+    "node": "8"
+  },
   "private": true
 }

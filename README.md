@@ -6,7 +6,7 @@ Stack: html, scss, js, gulp
 
 Hosting: Firebase hosting, Firebase Functions for server mailing.
 
-*Firebase secret stored in [Travis-CI](https://travis-ci)*
+*Firebase secret stored in [Travis-CI](https://travis-ci.com/NodeArt/tehposach.pe.site)*
 
 *Gmail secret stored in firebase secret*
 

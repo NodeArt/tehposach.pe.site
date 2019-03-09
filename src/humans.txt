@@ -3,13 +3,14 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Danil Nesterenko -- Developer -- d.nesterenko@nodeart.io
+    Andrew Moskovchuk -- adding CI, moving to github -- a.moskovchuk@nodeart.io
 
 # THANKS
 
-    <name>
+    Roman Padlyak
 
 # TECHNOLOGY COLOPHON
 
-    CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+   CSS3, HTML5, JS
+   Google firebase, Normalize.css, Gulp

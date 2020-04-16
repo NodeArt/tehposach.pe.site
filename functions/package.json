@@ -16,7 +16,7 @@
     "nodemailer": "^4.6.4"
   },
   "engines": {
-    "node": "8"
+    "node": "10"
   },
   "private": true
 }

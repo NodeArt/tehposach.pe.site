@@ -93,7 +93,7 @@ gulp.task('clean:dist', function () {
 
 gulp.task('styles', function () {
     return gulp.src(bases.app + 'scss/styles.scss')
-        // .pipe(plumber({errorHandler: onError}))
+        .pipe(plumber({errorHandler: onError}))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOptions))
         .pipe(size({gzip: true, showFiles: true}))

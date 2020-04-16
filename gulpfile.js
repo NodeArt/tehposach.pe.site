@@ -84,7 +84,7 @@ var prefixerOptions = {
 
 gulp.task('clean:dist', function () {
 
-    return gulp.src(bases.dist)
+    return gulp.src(bases.dist, {allowEmpty: true})
         .pipe(vinylPaths((paths) => {
             return del(paths, {force: true})
         }));
@@ -93,7 +93,7 @@ gulp.task('clean:dist', function () {
 
 gulp.task('styles', function () {
     return gulp.src(bases.app + 'scss/styles.scss')
-        .pipe(plumber({errorHandler: onError}))
+        // .pipe(plumber({errorHandler: onError}))
         .pipe(sourcemaps.init())
         .pipe(sass(sassOptions))
         .pipe(size({gzip: true, showFiles: true}))
@@ -128,12 +128,13 @@ gulp.task('themes', function () {
         .pipe(gulp.dest(bases.dist + 'css/themes'))
 });
 
-gulp.task('browser-sync', function () {
+gulp.task('browser-sync', function (cb) {
     browserSync({
         server: {
             baseDir: bases.dist
         }
     });
+    cb();
 });
 
 gulp.task('deploy', function () {
@@ -141,8 +142,8 @@ gulp.task('deploy', function () {
         .pipe(deploy());
 });
 
-gulp.task('js-app', function () {
-    gulp.src(bases.app + '/js/*.js')
+gulp.task('js-app', function (cb) {
+    return gulp.src(bases.app + '/js/*.js')
         .pipe(webpack({
             devtool: 'source-map',
             entry: './src/js/main.js',
@@ -179,11 +180,11 @@ gulp.task('js-app', function () {
         }))
 
         .pipe(gulp.dest(bases.dist + 'js'))
-        .pipe(reload({stream: true}));
+        .pipe(reload({stream: true}))
 });
 
 gulp.task('js-libs', function () {
-    gulp.src([bases.app + 'js/libs/*.js', '!' + bases.app + 'js/libs/modernizr.js'])
+    return gulp.src([bases.app + 'js/libs/*.js', '!' + bases.app + 'js/libs/modernizr.js'])
         .pipe(uglify())
         .pipe(size({gzip: true, showFiles: true}))
         .pipe(concat('libs.js'))
@@ -192,64 +193,59 @@ gulp.task('js-libs', function () {
 });
 
 
-gulp.task('copy', function () {
-
-    // copy modernizr to dist directly
-    gulp.src(bases.app + 'js/libs/modernizr.js')
-        .pipe(size({gzip: true, showFiles: true}))
-        .pipe(gulp.dest(bases.dist + 'js/libs'))
-        .pipe(reload({stream: true}));
-
+gulp.task('copy', gulp.parallel(
     // copy icons to dist directly
-    gulp.src(bases.app + 'icons/**/*.*')
-        .pipe(size({gzip: true, showFiles: true}))
-        .pipe(gulp.dest(bases.dist))
-        .pipe(reload({stream: true}));
+    () => {
+        return gulp.src(bases.app + 'icons/**/*.*')
+            .pipe(size({gzip: true, showFiles: true}))
+            .pipe(gulp.dest(bases.dist))
+            .pipe(reload({stream: true}))
+    },
     // copy img to dist directly
 
     //copy images to dist/image
-    gulp.src(bases.app + 'images/**/*.*')
-        .pipe(size({gzip: true, showFiles: true}))
-        .pipe(gulp.dest(bases.dist + 'images/'))
-        .pipe(reload({stream: true}));
+    () => {
+        return gulp.src(bases.app + 'images/**/*.*')
+            .pipe(size({gzip: true, showFiles: true}))
+            .pipe(gulp.dest(bases.dist + 'images/'))
+            .pipe(reload({stream: true}))
+    },
 
+    () => {
+        return gulp.src(bases.app + 'video/**/*.*')
+            .pipe(size({gzip: true, showFiles: true}))
+            .pipe(gulp.dest(bases.dist + 'video/'))
+            .pipe(reload({stream: true}))
+    },
 
-    gulp.src(bases.app + 'video/**/*.*')
-        .pipe(size({gzip: true, showFiles: true}))
-        .pipe(gulp.dest(bases.dist + 'video/'))
-        .pipe(reload({stream: true}));
+    () => {
+        // copy meta files to dist directly
+        return gulp.src([bases.app + '*.xml', bases.app + '*.txt'])
+            .pipe(size({gzip: true, showFiles: true}))
+            .pipe(gulp.dest(bases.dist))
+            .pipe(reload({stream: true}))
+    },
+    () => {
 
-    // copy meta files to dist directly
-    gulp.src([bases.app + '*.xml', bases.app + '*.txt'])
-        .pipe(size({gzip: true, showFiles: true}))
-        .pipe(gulp.dest(bases.dist))
-        .pipe(reload({stream: true}));
-
-    gulp.src([bases.app + 'manifest/**/*.*'])
-        .pipe(gulp.dest(bases.root))
-        .pipe(reload({stream: true}));
-
-});
+        return gulp.src([bases.app + 'manifest/**/*.*'])
+            .pipe(gulp.dest(bases.root))
+            .pipe(reload({stream: true}))
+    }
+    )
+);
 
 gulp.task('sass-lint', function () {
-    gulp.src([bases.app + 'scss/**/*.scss', '!' + bases.app + 'scss/libs/**/*.scss', '!' + bases.app + 'scss/states/_print.scss'])
+    return gulp.src([bases.app + 'scss/**/*.scss', '!' + bases.app + 'scss/libs/**/*.scss', '!' + bases.app + 'scss/states/_print.scss'])
         .pipe(sassLint())
         .pipe(sassLint.format())
         .pipe(sassLint.failOnError());
 });
 
 gulp.task('minify-html', function () {
-    gulp.src(bases.app + './*.html')
+    return gulp.src(bases.app + './*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest(bases.dist))
         .pipe(reload({stream: true}));
-});
-
-gulp.task('watch', function () {
-    gulp.watch(bases.app + 'scss/**/*.scss', ['styles']);
-    gulp.watch(bases.app + './*.html', ['minify-html']);
-    gulp.watch(bases.app + 'img/*', ['imagemin']);
-    gulp.watch(bases.app + 'js/*.js', ['js-app']);
 });
 
 gulp.task('imagemin', function () {
@@ -280,13 +276,26 @@ gulp.task('sassdoc', function () {
         .pipe(sassdoc(options));
 });
 
+gulp.task('watch', gulp.parallel(
+    () => {
+        return gulp.watch(bases.app + 'scss/**/*.scss', gulp.series('styles')).on('change', reload)
+    },
+    () => {
+        return gulp.watch(bases.app + './*.html', gulp.series('minify-html')).on('change', reload)
+    },
+    () => {
+        return gulp.watch(bases.app + 'img/*', gulp.series('imagemin')).on('change', reload)
+    },
+    () => {
+        return gulp.watch(bases.app + 'js/*.js', gulp.series('js-app')).on('change', reload)
+    }
+));
+
+
 // BUILD TASKS
 // ------------
 
-gulp.task('default', function (done) {
-    runSequence('clean:dist', 'browser-sync', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'themes', 'copy', 'watch', done);
-});
+gulp.task('default',
+    gulp.series('clean:dist', 'browser-sync', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'themes', 'copy', 'watch'));
 
-gulp.task('build', function (done) {
-    runSequence('clean:dist', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'copy', done);
-});
+gulp.task('build', gulp.series('clean:dist', 'js-app', 'js-libs', 'imagemin', 'minify-html', 'styles', 'copy'));

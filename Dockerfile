@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:10
 COPY package.json ./
 COPY functions/package.json ./functions/
 RUN npm i && npm i --prefix functions

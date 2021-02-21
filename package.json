@@ -41,7 +41,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
-    "imagemin-pngquant": "^4.2.2",
+    "imagemin-pngquant": "^9.0.1",
     "run-sequence": "^2.2.1",
     "sassdoc": "^2.7.1",
     "source-map-loader": "^0.2.4",

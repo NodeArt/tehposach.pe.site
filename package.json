@@ -46,7 +46,7 @@
     "sassdoc": "^2.7.1",
     "source-map-loader": "^0.2.4",
     "uglifyjs-webpack-plugin": "^0.4.6",
-    "vinyl-paths": "^2.1.0",
+    "vinyl-paths": "^4.0.0",
     "webpack-stream": "^4.0.3"
   }
 }
